@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body{font-family: Tahoma;font-size:0.8em;text-align: right;width:100%;padding:0;margin:0;}
+input,select,textarea{direction: rtl;font-family: Tahoma;font-size:1em;border:1px black solid;padding:5px;margin:5px;}
+
+
+.containr{width:700px;margin:0 auto;float: right;position: relative;clear: both;overflow: hidden;display: block;color: red;}
+.box{float: right;border:1px black solid;border-radius: 15px;padding:10px;margin:10px;width:700px;display: block;}
+table{border:1px black solid;margin:10px;max-width:700px;}
+table tr,td,th{border:1px black solid;padding:5px;}
