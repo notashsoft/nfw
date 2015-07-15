@@ -1,5 +1,5 @@
 # NFW
-a simple PHP framewor that remove Model from MVC architecture for simplicity.
+a simple PHP framework that remove Model from MVC architecture for simplicity.
 
 in the NFW router launch controller, after controller view will be launched and the last is layout launching.
 
