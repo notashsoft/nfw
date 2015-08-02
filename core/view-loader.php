@@ -2,7 +2,7 @@
 ob_start();
 if(!isset($this->view)){
 	
-	if(isset($this->prefix)){
+	if(isset($this->prefix)&&!empty($this->prefix)){
 		include '../app/view/'.$this->prefix.'/'.$this->controller.'/'.$this->action.'.php';
 	}else{
 		include '../app/view/'.$this->controller.'/'.$this->action.'.php';

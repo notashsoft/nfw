@@ -8,10 +8,10 @@ $config['db']['password']="";
 
 //Theme
 $config['layout']="main";
-$config['website_uri']="http://localhost/";
+$config['website_uri']="http://localhost/nfw/nfw/";
 
 
-$config['controller_prefix']=[];
+$config['controller_prefix']=['admin'];
 
 
 

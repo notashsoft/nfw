@@ -1,0 +1,12 @@
+v 2.2.21
+-First Publish version (not fully stable)
+
+v 2.2.25
+-Router was redesigned to support url that just has action and no controller name so goes to index controller with given active.
+
+
+v 2.2.29
+-get,post,session,cookie functions add to get these data sql injection validated.
+
+v 2.2.37
+-some change in router for gotting all forms of urls, and change in uri function to set better with url.

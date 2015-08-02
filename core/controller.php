@@ -34,7 +34,11 @@ class controller_main extends fw{
     
             case is_numeric($request):
                 global $uri;
-                if(isset($uri[$request])){return $uri[$request];}else{return false;}
+                if(isset($uri[$request])){
+					return htmlspecialchars($uri[$request],ENT_QUOTES);
+				}else{
+					return false;
+				}
                 break;
     
             case 'uri':
@@ -44,14 +48,12 @@ class controller_main extends fw{
     
             default:
                 global $uri;
-                if($index=array_search($request,$uri)){
-                    if(isset($uri[$index+1])){return $uri[$index+1];}
-                }
+                $index=array_search($request,$uri);
+				if(is_numeric($index)&&isset($uri[$index+1])){
+					return htmlspecialchars($uri[$index+1],ENT_QUOTES);
+				}
     
                 break;
-    
-    
-    
         }
     
     
@@ -61,6 +63,22 @@ class controller_main extends fw{
     function get_element($name){
         include _THEME.'element/'.$name.'.php';
     }
+	
+	function validate($var){
+		return htmlspecialchars($var,ENT_QUOTES);
+	}
+	function get($var){
+		return htmlspecialchars($_GET[$var],ENT_QUOTES);
+	}
+	function post($var){
+		return htmlspecialchars($_POST[$var],ENT_QUOTES);
+	}
+	function session($var){
+		return htmlspecialchars($_SESSION[$var],ENT_QUOTES);
+	}
+	function cookie($var){
+		return htmlspecialchars($_COOKIE[$var],ENT_QUOTES);
+	}
     
 }
 
