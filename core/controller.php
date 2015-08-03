@@ -73,8 +73,12 @@ class controller_main extends fw{
 	function post($var){
 		return htmlspecialchars($_POST[$var],ENT_QUOTES);
 	}
-	function session($var){
-		return htmlspecialchars($_SESSION[$var],ENT_QUOTES);
+	function session($var,$value=''){
+		if(!empty($value)){
+			$_SESSION[$var]=$value;
+		}else{
+			return htmlspecialchars($_SESSION[$var],ENT_QUOTES);
+		}
 	}
 	function cookie($var){
 		return htmlspecialchars($_COOKIE[$var],ENT_QUOTES);
