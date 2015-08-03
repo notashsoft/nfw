@@ -19,8 +19,9 @@ class auth{
             return $_SESSION['notash_fw_user_role'];
         }
     }
+	
     function authenticate($accepted_role,$redirect){
-        if(isset($_SESSION['notash_fw_user_role'])&&$_SESSION['notash_fw_user_role']==$accepted_role){
+        if(isset($_SESSION['notash_fw_user_role'])&&in_array($accepted_role,$_SESSION['notash_fw_user_role'])){
             return true;
         }elseif(isset($_SESSION['notash_fw_user_name'])&&$_SESSION['notash_fw_user_name']!=''){
             $this->redirect($_SESSION['notash_fw_user_role']);
