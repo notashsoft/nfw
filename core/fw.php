@@ -32,7 +32,7 @@ class fw{
 
         if($this->layout) {
             
-            //theme
+            //Layout
             include _THEME . $this->layout . '.php';
         }
     }

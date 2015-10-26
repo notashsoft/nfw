@@ -80,8 +80,16 @@ class controller_main extends fw{
 			return htmlspecialchars($_SESSION[$var],ENT_QUOTES);
 		}
 	}
-	function cookie($var){
-		return htmlspecialchars($_COOKIE[$var],ENT_QUOTES);
+	function cookie($var,$value='',$time=''){
+		if(!empty($value)){
+		    setcookie($var , $value , $time);
+		}else{
+		    if(isset($_COOKIE[$var])){
+		      return htmlspecialchars($_COOKIE[$var],ENT_QUOTES);
+		    }else{
+		      return false;
+		    }
+		}
 	}
     
 }

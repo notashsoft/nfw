@@ -10,7 +10,6 @@ class index extends controller{
 		echo 'prefix: no<br/>controller:index<br/>action: test<br/>param:'.$this->uri('param');
 		
 	}
-	
 
 }
 ?>

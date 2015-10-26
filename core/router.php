@@ -15,7 +15,6 @@ $index=0;
 if(isset($uri[$index])&&!empty($uri[$index])&&in_array($uri[$index],$config['controller_prefix'])){
 	$prefix=$uri[$index];
 	if(isset($uri[$index+1])&&!empty($uri[$index+1])&&file_exists(_APP.'controller/'.$prefix.'/'.$uri[$index+1].'.php')){
-		
 		$controller=$uri[$index+1];
 		$action_index=$index+2;
 	}else{
