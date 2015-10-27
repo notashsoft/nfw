@@ -24,6 +24,9 @@ include _CORE.'fw.php';
 //loading controller functions
 include _CORE.'controller.php';
 
+//loading model functions
+include _CORE.'model.php';
+
 //router
 include _CORE.'router.php';
 

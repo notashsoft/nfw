@@ -1,13 +1,11 @@
 <?php
 class fw{
-    public $db,$uri,$controller,$action,$prefix,$view,$view_content,$layout,$script;
+    public $db,$uri,$controller,$action,$prefix,$view,$view_content,$layout,$script,$model=true;
 
     function fw(){
         //loading DB (model)
         include _CORE.'db.php';
         $this->db=new db();
-
-		
     }
 
     public function config($var){
@@ -19,7 +17,13 @@ class fw{
         }
     }
 
-
+    public function model_load(){
+        if($this->model) {
+            //model
+            include _CORE . 'model-loader.php';
+        } 
+    }
+    
     public function base_load(){
         global $config;
         
@@ -29,7 +33,6 @@ class fw{
             //view
             include _CORE . 'view-loader.php';
         }
-
         if($this->layout) {
             
             //Layout

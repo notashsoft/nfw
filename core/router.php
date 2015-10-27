@@ -54,6 +54,8 @@ if(isset($uri[$action_index])&&!empty($uri[$action_index])&&method_exists($fw,$u
 $fw->prefix=$prefix;
 $fw->controller=$controller;
 $fw->action=$action;
+$fw->model=$config['db']['model'];
+$fw->model_load();
 $fw->$action();
 
 

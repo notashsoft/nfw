@@ -7,6 +7,7 @@ class db{
         $this->db_pdo = new PDO('mysql:host='.$config['db']['localhost'].';dbname='.$config['db']['name'], $config['db']['username'], $config['db']['password'],
             array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
     }
+    function x(){echo 'salam';}
 
     function single($query_string){
         $query=$this->db_pdo->query($query_string);
