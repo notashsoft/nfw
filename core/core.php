@@ -1,6 +1,6 @@
 <?php
 /*
- * Notash Framework v2.2.37
+ * Notash Framework v2.5.0
  * www.Notashsoft.com - +982177645101
  * Author: Mohammad Reza Golestan
  * Co-worker: Reza Erami
