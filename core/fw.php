@@ -62,9 +62,21 @@ class fw{
         }
     }
 
-    function load($plugin){
-        include _CORE.'plugin/'.$plugin.'.php';
-        $this->$plugin=new $plugin();
+    function load($var,$type='plugin'){
+        if($type=='plugin'){
+            include _CORE.'plugin/'.$var.'.php';
+            $this->$var=new $var();
+        }else if($type=='model'){
+            include '../app/model/'.$var.'.php';
+            if(strpos($var, '/')){
+                $var_arr=explode('/', $var);
+                $var=$var_arr[1];
+            }
+            $mname=$var.'_model';
+            $cnt=$var;
+            $this->$cnt=new $mname();
+            $this->$cnt->load_db();
+        }
     }
 
 
