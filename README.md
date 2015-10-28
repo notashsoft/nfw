@@ -11,7 +11,8 @@ Element System = helps layout system to split code into some elements which can 
 
 Plugin System = helps to use some additional ability by adding plugin to system (a simple class)
 
-.::Plugins::.
+::Plugins::
+
 -Auth= a simple Authentication System
 -Pagination = Helps you to make a list with ability to limit list record number in every page and paginate, sort by fields and making links for options
 
