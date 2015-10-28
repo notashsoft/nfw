@@ -1,11 +1,17 @@
-# NFW
+# nFW
 a simple PHP framework that remove Model from MVC architecture for simplicity.
 
-in the NFW router launch controller, after controller view will be launched and the last is layout launching.
+a MVC PHP framework which care to simplicity. model can be removed optionally for very small projects and use query options in controller.
 
-controller has some simple methods help to code better and plugin system which give ability to add some new function.
+page layout will be managed by Layout system, also element system helps layout system to split code into some elements which can be used in some different layouts.
 
-after controller, its view or the view determined by controller will be launch which give the style to the controller.
 
-at the last layout launch and get a layout to full body. layouts can be selected by controller for more flexibility. every layout can use some elements. elements are some part of layout in extera file which used by layout.
+Layout System =  will be managed by Layout system
+Element System = helps layout system to split code into some elements which can be used in some different layouts
+
+Plugin System = helps to use some additional ability by adding plugin to system (a simple class)
+
+.::Plugins::.
+-Auth= a simple Authentication System
+-Pagination = Helps you to make a list with ability to limit list record number in every page and paginate, sort by fields and making links for options
 
