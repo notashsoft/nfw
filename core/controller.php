@@ -61,7 +61,13 @@ class controller_main extends fw{
     }
 
     function get_element($name){
-        include _THEME.'element/'.$name.'.php';
+        try{
+            if(! @include _ELEMENT.$name.'.php'){
+                throw new Exception("Error occured");
+            }    
+        }catch(Exception $e){
+            error('Theme Element file Missing', 'ELEMENT file "webroot/theme/element/'.$name.'.php" not found.',false);
+        }
     }
 	
 	function validate($var){

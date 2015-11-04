@@ -33,10 +33,16 @@ class fw{
             //view
             include _CORE . 'view-loader.php';
         }
+        //Layout
         if($this->layout) {
-            
-            //Layout
-            include _THEME . $this->layout . '.php';
+            try{
+                if (! @include _THEME . $this->layout . '.php'){
+                    throw new Exception("Error occured");
+                }
+                
+            }catch(Exception $e){
+                error('Layout File missing', 'LAYOUT file "webroot/theme/'.$this->layout.'.php" not found.',true);
+            }
         }
     }
 
@@ -64,18 +70,30 @@ class fw{
 
     function load($var,$type='plugin'){
         if($type=='plugin'){
-            include _CORE.'plugin/'.$var.'.php';
-            $this->$var=new $var();
-        }else if($type=='model'){
-            include '../app/model/'.$var.'.php';
-            if(strpos($var, '/')){
-                $var_arr=explode('/', $var);
-                $var=$var_arr[1];
+            try{
+                if(! @include_once (_PLUGIN.$var.'.php')){
+                    throw new Exception('Error ocurred');
+                }else{$this->$var=new $var();}
+            }catch(Exception $e){
+                error('Plugin File missing', 'PLUGIN file "core/plugin/'.$var.'.php" not found.',true);
             }
-            $mname=$var.'_model';
-            $cnt=$var;
-            $this->$cnt=new $mname();
-            $this->$cnt->load_db();
+        }else if($type=='model'){
+            try{
+                if(! @include_once(_MODEL.$var.'.php')){
+                    throw new Exception('Error ocurred');
+                }else{
+                    if(strpos($var, '/')){
+                        $var_arr=explode('/', $var);
+                        $var=$var_arr[1];
+                    }
+                    $mname=$var.'_model';
+                    $cnt=$var;
+                    $this->$cnt=new $mname();
+                    $this->$cnt->load_db();
+                }
+            }catch(Exception $e){
+                error('Model File missing', 'MODEL file "app/model/'.$var.'.php" not found.',true);
+            }
         }
     }
 
