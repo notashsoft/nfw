@@ -11,6 +11,7 @@ $uri=explode('/',$uri[0]);
 
 $index=0;
 
+
 //Prefix Enabled
 if(isset($uri[$index])&&!empty($uri[$index])&&in_array($uri[$index],$config['controller_prefix'])){
 	$prefix=$uri[$index];
@@ -49,13 +50,11 @@ if(isset($uri[$action_index])&&!empty($uri[$action_index])&&method_exists($fw,$u
 }else{
 	$action='index';
 }
-
 //execute action function
 $fw->prefix=$prefix;
 $fw->controller=$controller;
 $fw->action=$action;
-$fw->model=$config['db']['model'];
-$fw->model_load();
+$fw->app();
 $fw->$action();
 
 

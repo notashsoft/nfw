@@ -8,21 +8,7 @@ class fw{
         $this->db=new db();
     }
 
-    public function config($var){
-        global $config;
-        $vari=explode(',',$var);
-        $key='';
-        for($i=0;$i<=count($vari)-1;$i++){
-            $key.="['".$vari[$i]."']";
-        }
-    }
 
-    public function model_load(){
-        if($this->model) {
-            //model
-            include _CORE . 'model-loader.php';
-        } 
-    }
     
     public function base_load(){
         global $config;
@@ -68,7 +54,7 @@ class fw{
         }
     }
 
-    function load($var,$type='plugin'){
+    function load($var,$type='model'){
         if($type=='plugin'){
             try{
                 if(! @include_once (_PLUGIN.$var.'.php')){

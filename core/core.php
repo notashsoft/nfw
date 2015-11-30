@@ -1,7 +1,7 @@
 <?php
 /*
- * nFW v2.5.9
- * www.Notashsoft.com - +982177645101
+ * nFW v2.6.5
+ * www.Notashsoft.com - +989129342358
  * Author: Mohammad Reza Golestan - mreza_golestan@live.com
  * Co-worker: Reza Erami
  */

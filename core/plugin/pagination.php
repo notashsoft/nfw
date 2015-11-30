@@ -52,6 +52,15 @@ class pagination{
             return 'onclick="if (confirm(\'آیا واقعا می خواهید ردیف# ' . $id . ' را حذف کنید?\')){ window.location=\'' . $fw->uri('base') . $fw->uri('controller') . '/delete/' . $id . '\';}event.returnValue = false;return false;"';
         }
     }
+    function confirm($action,$id,$message){
+        global $fw;
+        $new_message=str_replace("#id", $id, $message);
+        if($fw->uri('prefix')) {
+            return 'onclick="if (confirm(\''.$new_message.'\')){ window.location=\'' . $fw->uri('base') . $fw->uri('prefix') . '/' . $fw->uri('controller') . '/'.$action.'/' . $id . '\';}event.returnValue = false;return false;"';
+        }else{
+            return 'onclick="if (confirm(\''.$new_message.'\')){ window.location=\'' . $fw->uri('base') . $fw->uri('controller') . '/'.$action.'/' . $id . '\';}event.returnValue = false;return false;"';
+        }
+    }
     function option($opt,$id){
         global $fw;
         if($fw->uri('prefix')) {

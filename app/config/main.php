@@ -2,10 +2,9 @@
 
 //Database Connection
 $config['db']['localhost']="localhost";
-$config['db']['name']="oh";
-$config['db']['username']="root";
+$config['db']['name']="";
+$config['db']['username']="";
 $config['db']['password']="";
-$config['db']['model']=true;
 
 
 

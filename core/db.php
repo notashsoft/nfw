@@ -17,7 +17,7 @@ class db{
         
         $query=$this->db_pdo->query($query_string);
         if($this->db_pdo->errorCode() == 0) {
-            return $query->fetch();
+            return $query->fetch(PDO::FETCH_ASSOC);
         }else{
             error('Database Query Run Failure','['.$this->db_pdo->errorCode().'] - '.$this->db_pdo->errorInfo()[2]);
         }
@@ -27,9 +27,8 @@ class db{
         $i=0;
         $query=$this->db_pdo->query($query_string);
         if($this->db_pdo->errorCode() == 0) {
-            foreach($query as $row) {
-                $ret[$i]=$row;
-                $i++;
+            while( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
+                $ret[] = $row; // appends each row to the array
             }
             return $ret;
         }else{

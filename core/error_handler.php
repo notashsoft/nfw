@@ -20,7 +20,7 @@ function error($title,$problem,$die=false){
 }
 
 //Make Errors designed style
-set_error_handler("customError");
+//set_error_handler("customError");
 
 //PHP version Check
 if(phpversion()<"5.4"){error('Server Configuration Problem','You need at least PHP version 5.4.',true);}
