@@ -43,9 +43,9 @@ class upload{
 	    }else if(!empty($allow_formats)&&!in_array($FileExt, $allow_formats)){
 	        return "FILE_FORMAT_ERROR";
 	    }else{
-            $ftp_server = "ftp.ostadhamrah.com";
+            $ftp_server = "ftp.domain.com";
             $ftp_conn = ftp_connect($ftp_server) or die("Could not connect to $ftp_server");
-            $login = ftp_login($ftp_conn, "remote@ostadhamrah.com", "mrp32201");
+            $login = ftp_login($ftp_conn, "username", "password");
                         
             // upload file
             if (ftp_put($ftp_conn, $target_file, $file["tmp_name"], FTP_BINARY))
@@ -62,9 +62,9 @@ class upload{
 	    }
 	}
 	function remote_delete($file){
-        $ftp_server = "ftp.ostadhamrah.com";
+        $ftp_server = "ftp.domain.com";
         $ftp_conn = ftp_connect($ftp_server) or die("Could not connect to $ftp_server");
-        $login = ftp_login($ftp_conn, "remote@ostadhamrah.com", "mrp32201");
+        $login = ftp_login($ftp_conn, "username", "password");
 
         // try to delete $file
         if (ftp_delete($ftp_conn, $file)) {
